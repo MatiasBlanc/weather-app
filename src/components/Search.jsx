@@ -1,10 +1,11 @@
 import { useState } from 'react'
 
 export default function Search() {
+    const apiKey = '13f7ba95fc1a4e708a2171901222506';
     const [city, setCity] = useState('')
     const [temp, setTemp] = useState({})
-    let tempC = parseInt(temp.temp - 273.15);
-    const onSubmit = (evt) => {
+    let tempC = !temp ? parseInt(temp.temp - 273.15) : 0;
+    function onSubmit (evt) {
         evt.preventDefault();
         if (!city) return;
         
